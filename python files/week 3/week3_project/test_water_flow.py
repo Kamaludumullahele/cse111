@@ -23,15 +23,21 @@ def test_pressure_gain_from_water_height():
 # calling for test_pressure_loss_from_pipe to check the pressure_loss_from_pipe function
 
 def test_pressure_loss_from_pipe():
-    assert -0.018 * 0 * 998.2 * 1.75 ** 2 / 2000 * 0.048692 == approx(0, abs=0.001)
-    assert -0.0 * 200 * 998.2 * 1.75 ** 2 / 2000 * 0.048692 == approx(0, abs=0.001)
-    assert -0.018 * 200 * 998.2 * 0 ** 2 / 2000 * 0.048692 == approx(0, abs=0.001)
+    assert -0.018 * 0 * 998.2 * 1.75 ** 2 / (2000 * 0.048692) == approx(0, abs=0.001)
+    assert -0.0 * 200 * 998.2 * 1.75 ** 2 / (2000 * 0.048692) == approx(0, abs=0.001)
+    assert -0.018 * 200 * 998.2 * 0 ** 2 / (2000 * 0.048692) == approx(0, abs=0.001)
     assert -0.018 * 200 * 998.2 * 1.75 ** 2 / (2000 * 0.048692) == approx(-113.008, abs=0.001)
     assert -0.018 * 200 * 998.2 * 1.65 ** 2 / (2000 * 0.048692) == approx(-100.462, abs=0.001)
     assert -0.013 * 1000 * 998.2 * 1.65 ** 2 / (2000 * 0.286870) == approx(-61.576, abs=0.001)
     assert -0.013 * 1800.75 * 998.2 * 1.65 ** 2 / (2000 * 0.286870) == approx(-110.884, abs=0.001)
 
 
+def test_pressure_loss_from_fittings():
+    assert -.04 * 998.2 * 0 * 2 * 3 / 2000 == approx(0, abs=0.001)
+    assert -.04 * 998.2 * 1.65 * 2 * 0 / 2000 == approx(0, abs=0.001)
+    assert -.04 * 998.2 * 1.65 * 2 * 2 / 2000 == approx(-0.109, abs=0.001)
+    assert -.04 * 998.2 * 1.75 * 2 * 2 / 2000 == approx(-0.122, abs=0.001)
+    assert -.04 * 998.2 * 1.75 * 2 * 5 / 2000 == approx(-0.306, abs=0.001)
 
 
 
