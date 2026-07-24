@@ -31,7 +31,7 @@ def test_pressure_loss_from_pipe():
     assert -0.013 * 1000 * 998.2 * 1.65 ** 2 / (2000 * 0.286870) == approx(-61.576, abs=0.001)
     assert -0.013 * 1800.75 * 998.2 * 1.65 ** 2 / (2000 * 0.286870) == approx(-110.884, abs=0.001)
 
-
+#function for getting pressrue loss from fittings for testing
 def test_pressure_loss_from_fittings():
     assert -.04 * 998.2 * 0 ** 2 * 3 / 2000 == approx(0, abs=0.001)
     assert -.04 * 998.2 * 1.65 ** 2 * 0 / 2000 == approx(0, abs=0.001)
@@ -39,7 +39,7 @@ def test_pressure_loss_from_fittings():
     assert -.04 * 998.2 * 1.75 ** 2 * 2 / 2000 == approx(-0.122, abs=0.001)
     assert -.04 * 998.2 * 1.75 ** 2 * 5 / 2000 == approx(-0.306, abs=0.001)
 
-
+#function for calculating the reynolds number for testing
 def test_reynolds_number():
     assert 998.2 * 0.048692 * 0 / 0.0010016 == approx(0, abs=1)
     assert 998.2 * 0.048692 * 1.65 / 0.0010016 == approx(80069, abs=1)
@@ -47,16 +47,16 @@ def test_reynolds_number():
     assert 998.2 * 0.286870 * 1.65 / 0.0010016 == approx(471729, abs=1)
     assert 998.2 * 0.286870 * 1.75 / 0.0010016 == approx(500318, abs=1)
 
-
+#function for calculating pressure reduction in pipes for testing
 def test_pressure_loss_from_pipe_reduction():
     k=(.1 + 50 / 1) * ((0.28687 / 0.048692) ** 4 - 1)
     assert -(k) * 998.2 * 0 ** 2 / 2000 == approx(0, abs=0.001)
 
     k=(.1 + 50 / 471729) * ((0.28687 / 0.048692) ** 4 - 1)
-    assert -(k) * 998.2 * 1.65 ** 2 / 2000 == approx(-164.016, abs=0.001)
+    assert -(k) * 998.2 * 1.65 ** 2 / 2000 == approx(-163.744, abs=0.001)
 
     k=(.1 + 50 / 500318) * ((0.28687 / 0.048692) ** 4 - 1)
-    assert -(k) * 998.2 * 1.75 ** 2 / 2000 == approx(-184.488, abs=0.001)
+    assert -(k) * 998.2 * 1.75 ** 2 / 2000 == approx(-184.182, abs=0.001)
     
 
 
