@@ -11,7 +11,6 @@ WATER_DYNAMIC_VISCOSITY = 0.0010016
 pressure_in_psi = 0
 def main():
     tower_height = float(input("Height of water tower (meters): "))
-
     tank_height = float(input("Height of water tank walls (meters): "))
     length1 = float(input("Length of supply pipe from tank to lot (meters): "))
     quantity_angles = int(input("Number of 90° angles in supply pipe: "))
@@ -59,7 +58,7 @@ def reynolds_number(hydraulic_diameter, fluid_velocity, WATER_DENSITY):
       return hydraulic_diameter * fluid_velocity * WATER_DENSITY / 0.0010016
 
 def pressure_loss_from_pipe_reduction(reynolds_number,larger_diameter, smaller_diameter, WATER_DENSITY, fluid_velocity):
-    k=(.1 + 50 / reynolds_number) * ((larger_diameter / smaller_diameter) ** 4 + 1)
+    k=(.1 + 50 / reynolds_number) * ((larger_diameter / smaller_diameter) ** 4 - 1)
     return -k * WATER_DENSITY * fluid_velocity ** 2 / 2000
 
 def  converts_kPa_to_psi(pressure):
