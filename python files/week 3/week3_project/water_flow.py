@@ -21,8 +21,8 @@ def main():
     diameter = PVC_SCHED80_INNER_DIAMETER
     friction = PVC_SCHED80_FRICTION_FACTOR
     velocity = SUPPLY_VELOCITY
-    reynolds = reynolds_number(diameter, velocity)
-    loss = pressure_loss_from_pipe(diameter, length1, friction, velocity)
+    reynolds = reynolds_number(diameter, velocity, WATER_DENSITY)
+    loss = pressure_loss_from_pipe(friction, length1, WATER_DENSITY, velocity, diameter)
     pressure += loss
     loss = pressure_loss_from_fittings(velocity, quantity_angles)
     pressure += loss
@@ -32,10 +32,10 @@ def main():
     diameter = HDPE_SDR11_INNER_DIAMETER
     friction = HDPE_SDR11_FRICTION_FACTOR
     velocity = HOUSEHOLD_VELOCITY
-    loss = pressure_loss_from_pipe(diameter, length2, friction, velocity)
+    loss = pressure_loss_from_pipe(friction, length2, WATER_DENSITY, velocity, diameter)
     pressure += loss
     print(f"Pressure at house: {pressure:.1f} kilopascals")
-    # exceeding requirment:
+    # exceeding requirment2:
     print(f"Pressure at house in psi: {pressure / 6.895 } ")
 
 def water_column_height(tower_height, tank_height):
@@ -45,19 +45,19 @@ def pressure_gain_from_water_height(WATER_DENSITY ,water_column_height):
     #TODO: Need to implement
     return WATER_DENSITY * 9.80665 * water_column_height / 1000
 
-def pressure_loss_from_pipe(friction_factor, pipe_length, WATER_DENSITY, fluid_velocity, pipe_diameter):
+def pressure_loss_from_pipe(friction_factor, pipe_length, fluid_velocity, pipe_diameter):
     numerator = -friction_factor * pipe_length * WATER_DENSITY * fluid_velocity ** 2
-    denominator = 200 * pipe_diameter
+    denominator = 2000 * pipe_diameter
     return numerator / denominator
 
 def pressure_loss_from_fittings(fluid_velocity, quantity_fittings):
     return -.04 * WATER_DENSITY * fluid_velocity ** 2 * quantity_fittings / 2000
 
-def reynolds_number(hydraulic_diameter, fluid_velocity, WATER_DENSITY):
+def reynolds_number(hydraulic_diameter, fluid_velocity):
       #TODO: Need to implement
-      return hydraulic_diameter * fluid_velocity * WATER_DENSITY / 0.0010016
+      return hydraulic_diameter * fluid_velocity * WATER_DENSITY / WATER_DYNAMIC_VISCOSITY
 
-def pressure_loss_from_pipe_reduction(reynolds_number,larger_diameter, smaller_diameter, WATER_DENSITY, fluid_velocity):
+def pressure_loss_from_pipe_reduction(reynolds_number, larger_diameter, smaller_diameter, fluid_velocity):
     k=(.1 + 50 / reynolds_number) * ((larger_diameter / smaller_diameter) ** 4 - 1)
     return -k * WATER_DENSITY * fluid_velocity ** 2 / 2000
 
