@@ -22,7 +22,7 @@ def calculate_age(dob):
     age = today.year - dob.year
     age = 0 if age < 0 else age  # Ensure age is not negative
     # Cap age at 150 to avoid unrealistic values
-    age = min(age, 150) 
+    age = min(age, 115) 
     if (today.month, today.day) < (dob.month, dob.day):
         age -= 1
     return age
