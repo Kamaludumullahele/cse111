@@ -23,7 +23,12 @@ doing any of the following:
 2021-12-03      .5      Watched video on 
 =============Example====================
 2026-08-08      2.0     researching and reading materials related to Pneumococcal vaccines
-2926-04-10      2.5     coding the initial stage, abstracting data
+2026-08-10      2.5     coding the initial stage, abstracting data
+2026-08-10      2.0     writing experimental codes for the project
+2026-08-11      6.0     writing codes for the pneumovac.py
+2026-08-11      2.0     writing codes for the test functions
+2026-08-12      2.0     debugging codes test functions
+
 
 
 
