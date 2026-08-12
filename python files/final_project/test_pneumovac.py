@@ -1,6 +1,18 @@
 import datetime as dt
+
+import pytest
+
 import final_project.pneumovac as pneumovac
 
+
+@pytest.fixture
+def age():
+    return 30
+
+
+@pytest.fixture
+def keys():
+    return [1]
 
 
 def test_calculate_age(monkeypatch):
