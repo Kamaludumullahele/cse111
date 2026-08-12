@@ -1,8 +1,6 @@
 import datetime as dt
-
 import pytest
-
-import final_project.pneumovac as pneumovac
+import pneumovac as pneumovac
 
 
 @pytest.fixture
@@ -38,6 +36,8 @@ def test_eligibility_by_condition_key(age, keys):
     assert pneumovac.eligibility(age, keys) is True
     assert pneumovac.eligibility(age, [99]) is False
     assert pneumovac.eligibility(age, []) is False
+
+
 
 
 
