@@ -14,7 +14,8 @@ CSE 111 Proposal for a Student Chosen Program
 2. What real-world problem will your program address or help to solve? The program recommends the eligibility of the 
 Pneumococcal Vaccination depending on the age, chronic medical conditions, immunity level and previous Vaccination history
 
-3. What will you learn from developing this program? Application of python funcitions, csv files, using dictionaries, and easily answer the problem of "Is this time to get my Pneumococcal?".
+3. What will you learn from developing this program? Application of python funcitions, csv files, 
+using dictionaries, and easily answer the problem of "Is this time to get my Pneumococcal?".
 
 4. What Python modules will your program use?
 csv, fictiontools, pytest, vaccines
