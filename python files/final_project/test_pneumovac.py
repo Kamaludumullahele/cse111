@@ -29,15 +29,15 @@ def test_calculate_age(monkeypatch):
     assert pneumovac.calculate_age(dt.date(1950, 12, 15)) == 75
 
 
-def test_eligibility_by_age(age):
+def test_eligibility_by_age():
     assert pneumovac.eligibility(65, []) is True
     assert pneumovac.eligibility(70, []) is True
 
 
 def test_eligibility_by_condition_key(age, keys):
-    assert pneumovac.eligibility(30, [1]) is True
-    assert pneumovac.eligibility(30, [99]) is False
-    assert pneumovac.eligibility(30, []) is False
+    assert pneumovac.eligibility(age, keys) is True
+    assert pneumovac.eligibility(age, [99]) is False
+    assert pneumovac.eligibility(age, []) is False
 
 
 
