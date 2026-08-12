@@ -18,14 +18,15 @@ Pneumococcal Vaccination depending on the age, chronic medical conditions, immun
 using dictionaries, and easily answer the problem of "Is this time to get my Pneumococcal?".
 
 4. What Python modules will your program use?
-csv, fictiontools, pytest, vaccines
+csv, datetime, pytest
     (Some examples are: csv, datetime, functools, matplotlib, math,
     pandas, pytest, random, requests, and tkinter.)
 
 5. List the names of functions you will need?
 def main()
+def calculate_age(bob)
 def eligibility (age, conditions)
-def recommendation (vac_history)
+
     (Remember that the most reusable functions don't get user input and
     don't print results but instead have parameters and return a result.
     Functions that get user input and print results are important and do
@@ -38,7 +39,7 @@ def recommendation (vac_history)
     to have parameters and return a result.)
 
 6. List the names of the test functions you will write.
-def test_eligibility
-def test_recommendation
-def test_all_tests
+def test_eligibility_by_age
+def test_eligibility_by_condition_key
+def test_calculate_age
 

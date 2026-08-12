@@ -22,6 +22,7 @@ def test_calculate_age(monkeypatch):
     monkeypatch.setattr(pneumovac, "date", FixedDate)
 
     assert pneumovac.calculate_age(dt.date(2026, 8, 11)) == 0
+    assert pneumovac.calculate_age(dt.date(2020, 11, 21)) == 5
     assert pneumovac.calculate_age(dt.date(2000, 11, 21)) == 25
     assert pneumovac.calculate_age(dt.date(1990, 3, 15)) == 36
     assert pneumovac.calculate_age(dt.date(1950, 12, 15)) == 75

@@ -16,7 +16,7 @@ conditions = {
         12: "csf_leak",
 }
 
-
+ # calculate age based on date of birth
 def calculate_age(dob):
     today = date.today()
     age = today.year - dob.year
@@ -24,14 +24,14 @@ def calculate_age(dob):
         age -= 1
     return max(age, 0)
 
-
+# determine eligibility based on age and selected condition keys
 def eligibility(age, selected_keys):
     if age >= 65:
         return True
 
     return any(key in conditions for key in selected_keys)
 
-
+# running the main program to interact with the user
 def main():
     while True:
         dob_str = input("Enter your date of birth (YYYY-MM-DD): ").strip()
@@ -43,6 +43,9 @@ def main():
 
         age = calculate_age(dob)
         print(f"You are {age} years old.")
+        if age < 18:
+            print("Please follow the pediatric vaccination schedule.")
+            break
 
         if age >= 65:
             print("You are eligible for vaccination based on age.")
